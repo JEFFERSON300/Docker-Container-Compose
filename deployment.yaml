@@ -1,0 +1,24 @@
+apiVersion: apps/v1 # versão api do kubernetes
+kind: Deployment # tipo de conteúdo que o arquivo trabalha
+
+metadata:
+  name: my-app
+spec:
+  selector:
+    matchLabels:
+      app: my-app
+  replicas: 2
+  template: # POD
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-app
+          image: jefferson300/ecommerce
+          imagePullPolicy: IfNotPresent # se n existir a imagem na máquina procura no dockerhub
+          ports:
+            - containerPort: 3333
+          env:
+            - name: DB_HOST
+              value: "postgres"

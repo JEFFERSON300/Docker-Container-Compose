@@ -11,7 +11,7 @@ WORKDIR /app
 EXPOSE 3333
 
 ENV DB_DIALECT=postgres
-ENV DB_HOST=localhost
+ENV DB_HOST=postgres
 ENV DB_USERNAME=postgres
 ENV DB_PASSWORD=root
 ENV DATABASE=postgres
